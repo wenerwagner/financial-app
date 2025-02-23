@@ -16,9 +16,9 @@ public class AdminConfig {
 
     private UserRepository userRepository;
 
-    private final String ADMIN_NAME = "Admin User";
-    private final String ADMIN_EMAIL = "admin@admin.com";
-    private final String ADMIN_PASSWORD = "Teste@123";
+    private static final String ADMIN_NAME = "Admin User";
+    private static final String ADMIN_EMAIL = "admin@admin.com";
+    private static final String ADMIN_PASSWORD = "Teste@123";
 
 
     @Bean

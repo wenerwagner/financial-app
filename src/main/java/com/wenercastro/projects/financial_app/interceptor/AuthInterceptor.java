@@ -25,8 +25,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         System.out.println("PreHandle: Intercepting request...");
         System.out.println("Request URI: " + request.getRequestURI());
 
-        if (handler instanceof HandlerMethod) {
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
+        if (handler instanceof HandlerMethod handlerMethod) {
             RequireAuth requireAuth = handlerMethod.getMethodAnnotation(RequireAuth.class);
 
             if (requireAuth != null) {
@@ -43,16 +42,6 @@ public class AuthInterceptor implements HandlerInterceptor {
                 System.out.println("VALID TOKEN");
                 System.out.println("LOGGED AS " + jwtService.getUsernameFromToken(token));
             }
-
-//            if (claims != null) {
-//                // Supondo que você queira adicionar as informações do usuário na requisição
-//                request.setAttribute("user", claims.getSubject()); // Exemplo de adicionar o usuário
-//                request.setAttribute("permissions", claims.get("permissions", Collections.class)); // Exemplo de permissões
-//            } else {
-//                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-//                response.getWriter().write("Token inválido.");
-//                return;
-//            }
         }
 
         return true; // Continue processing the request
