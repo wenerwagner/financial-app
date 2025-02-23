@@ -1,0 +1,2 @@
+- [x] Create User CRUD.
+- [ ] Create Login for the User. Endpoints and all that.
