@@ -7,15 +7,21 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class JwtService {
 
     private String secretKey = "minhaChaveSecretaasdsadsadsadasdasfsadasfasdsascadsdfasfsa";
 
-    public String generateToken(String username) {
+    public String generateToken(String email, String role) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("role", role);
+        claims.put("email", email);
+
         return Jwts.builder()
-                .setSubject(username)
+                .setClaims(claims)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
                 .signWith(SignatureAlgorithm.HS256, secretKey)
@@ -35,11 +41,19 @@ public class JwtService {
         }
     }
 
-    public String getUsernameFromToken(String token) {
+    public String getEmailFromToken(String token) {
         Jws<Claims> claimsJws = Jwts.parser()
                 .setSigningKey(secretKey)
                 .parseClaimsJws(token);
 
-        return claimsJws.getBody().getSubject(); // Retorna o "username" do token
+        return claimsJws.getBody().get("email", String.class);
+    }
+
+    public String getRoleFromToken(String token) {
+        Jws<Claims> claimsJws = Jwts.parser()
+                .setSigningKey(secretKey)
+                .parseClaimsJws(token);
+
+        return claimsJws.getBody().get("role", String.class);
     }
 }

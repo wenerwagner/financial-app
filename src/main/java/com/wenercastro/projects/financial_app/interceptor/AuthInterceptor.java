@@ -1,6 +1,7 @@
 package com.wenercastro.projects.financial_app.interceptor;
 
 import com.wenercastro.projects.financial_app.annotations.RequireAuth;
+import com.wenercastro.projects.financial_app.model.Role;
 import com.wenercastro.projects.financial_app.service.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,22 +30,42 @@ public class AuthInterceptor implements HandlerInterceptor {
             RequireAuth requireAuth = handlerMethod.getMethodAnnotation(RequireAuth.class);
 
             if (requireAuth != null) {
-                System.out.println("Roles: " + Arrays.toString(requireAuth.value()));
+                System.out.println(request.getRequestURI() + " require auth!");
+
+                String authorizationHeader = request.getHeader(AUTH_HEADER);
+                if (authorizationHeader != null && authorizationHeader.startsWith(BEARER_PREFIX)) {
+                    String token = authorizationHeader.substring(BEARER_PREFIX.length());
+                    if (jwtService.isTokenValid(token)) {
+                        String loggedUserEmail = jwtService.getEmailFromToken(token);
+                        String loggedUserRole = jwtService.getRoleFromToken(token);
+
+                        request.setAttribute("loggedUserEmail", loggedUserEmail);
+                        request.setAttribute("loggedUserRole", loggedUserRole);
+
+                        System.out.println("User is authenticated as " + loggedUserEmail);
+
+                        Role[] requiredRoles =  requireAuth.value();
+                        if (requiredRoles.length == 0 || Arrays.asList(requiredRoles).contains(Role.valueOf(loggedUserRole))) {
+                            System.out.println("User has the role " + loggedUserRole);
+                        } else {
+                            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                            return false;
+                        }
+                    } else {
+                        System.out.println("User is not authenticated");
+
+                        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                        return false;
+                    }
+                } else {
+                    System.out.println("User is not authenticated");
+
+                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                    return false;
+                }
             }
         }
-
-        String authorizationHeader = request.getHeader(AUTH_HEADER);
-
-        if (authorizationHeader != null && authorizationHeader.startsWith(BEARER_PREFIX)) {
-            String token = authorizationHeader.substring(BEARER_PREFIX.length());
-
-            if (jwtService.isTokenValid(token)) {
-                System.out.println("VALID TOKEN");
-                System.out.println("LOGGED AS " + jwtService.getUsernameFromToken(token));
-            }
-        }
-
-        return true; // Continue processing the request
+        return true;
     }
 
     @Override

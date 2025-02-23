@@ -17,6 +17,6 @@ public class AuthService {
         if (!user.getPassword().equals(password)) {
             throw new Exception("Wrong password");
         }
-        return new AccessToken(jwtService.generateToken(email));
+        return new AccessToken(jwtService.generateToken(email, user.getRole().name()));
     }
 }
