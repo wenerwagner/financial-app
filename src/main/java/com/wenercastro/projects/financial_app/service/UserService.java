@@ -3,6 +3,7 @@ package com.wenercastro.projects.financial_app.service;
 import com.wenercastro.projects.financial_app.dto.CreateUser;
 import com.wenercastro.projects.financial_app.dto.UpdateUser;
 import com.wenercastro.projects.financial_app.dto.UserDTO;
+import com.wenercastro.projects.financial_app.model.Role;
 import com.wenercastro.projects.financial_app.model.User;
 import com.wenercastro.projects.financial_app.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ public class UserService {
                 .email(userData.email())
                 .name(userData.name())
                 .password(userData.password())
+                .role(Role.USER)
                 .build();
         userRepository.save(user);
     }

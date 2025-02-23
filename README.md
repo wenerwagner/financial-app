@@ -1,4 +1,4 @@
 - [x] Create User CRUD.
 - [x] Create Login for the User. Endpoints and all that.
 - [ ] Create a Role System.
-- [ ] Create a ADMIN User when the application starts.
+- [x] Create a ADMIN User when the application starts.
