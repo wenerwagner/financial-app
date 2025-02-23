@@ -8,6 +8,8 @@ import com.wenercastro.projects.financial_app.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +29,7 @@ public class UserService {
     }
 
     public List<UserDTO> getUsers() {
-        List<User> users = userRepository.findAll();
+        List<User> users = new ArrayList<>((Collection) userRepository.findAll());
         return users.stream().map(user -> new UserDTO(user.getId(), user.getName(), user.getEmail())).toList();
     }
 
@@ -60,5 +62,13 @@ public class UserService {
         }
         User user = optionalUser.get();
         userRepository.delete(user);
+    }
+
+    public User getUserByEmail(String email) throws Exception{
+        Optional<User> optionalUser = userRepository.findByEmail(email);
+        if (optionalUser.isEmpty()) {
+            throw new Exception("User not found");
+        }
+        return optionalUser.get();
     }
 }
