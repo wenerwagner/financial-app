@@ -1,9 +1,6 @@
 package com.wenercastro.projects.financial_app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name = "users")
@@ -21,4 +18,7 @@ public class User {
     private String email;
     private String password;
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

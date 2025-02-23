@@ -1,7 +1,6 @@
 package com.wenercastro.projects.financial_app.controller;
 
 import com.wenercastro.projects.financial_app.annotations.RequireAuth;
-import com.wenercastro.projects.financial_app.annotations.PermissionRoles;
 import com.wenercastro.projects.financial_app.dto.CreateUser;
 import com.wenercastro.projects.financial_app.dto.UpdateUser;
 import com.wenercastro.projects.financial_app.dto.UserDTO;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.wenercastro.projects.financial_app.annotations.PermissionRoles.ADMIN;
-import static com.wenercastro.projects.financial_app.annotations.PermissionRoles.USER;
+import static com.wenercastro.projects.financial_app.model.Role.ADMIN;
+import static com.wenercastro.projects.financial_app.model.Role.USER;
 
 @RestController
 @RequestMapping("/users")
