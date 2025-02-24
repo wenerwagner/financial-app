@@ -6,25 +6,23 @@ import lombok.*;
 
 import java.util.Set;
 
-@Table(name = "users")
+@Table(name = "spreadsheets")
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Spreadsheet {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String email;
-    private String password;
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @ManyToOne
+    private User owner;
 
-    @OneToMany(mappedBy="owner")
-    private Set<Spreadsheet> spreadsheets;
+    @OneToMany(mappedBy="spreadsheetr")
+    private Set<MoneyAccount> accounts;
 }

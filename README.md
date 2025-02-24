@@ -3,6 +3,7 @@
 - [x] Create a Role System.
 - [x] Create a ADMIN User when the application starts.
 - [ ] Create Spreadsheet CRUD associated with logged User.
-- [ ] Create Account CRUD
-- [ ] Create Entity CRUD
-- [ ] Create Register CRUD
+- [ ] Create Account CRUD.
+- [ ] Create Entity CRUD.
+- [ ] Create Register CRUD.
+- [ ] Adicionar conexão com um banco de dados persistente.

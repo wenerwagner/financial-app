@@ -4,27 +4,21 @@ import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.*;
 
-import java.util.Set;
-
-@Table(name = "users")
+@Table(name = "accounts")
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class User {
+public class MoneyAccount {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String email;
-    private String password;
     private String name;
+    private Long amount;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    @OneToMany(mappedBy="owner")
-    private Set<Spreadsheet> spreadsheets;
+    @ManyToOne
+    private Spreadsheet spreadsheet;
 }
