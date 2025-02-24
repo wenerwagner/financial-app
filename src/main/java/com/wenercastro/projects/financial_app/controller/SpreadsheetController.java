@@ -1,6 +1,6 @@
 package com.wenercastro.projects.financial_app.controller;
 
-import com.wenercastro.projects.financial_app.dto.CreateSpreadsheet;
+import com.wenercastro.projects.financial_app.dto.CreateUpdateSpreadsheet;
 import com.wenercastro.projects.financial_app.dto.SpreadsheetDTO;
 import com.wenercastro.projects.financial_app.service.SpreadsheetService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ public class SpreadsheetController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    void create(@PathVariable Long userId, @RequestBody CreateSpreadsheet spreadsheetData, HttpServletRequest request) {
+    void createSpreadsheet(@PathVariable Long userId, @RequestBody CreateUpdateSpreadsheet spreadsheetData, HttpServletRequest request) {
         validateUserId(userId, request);
         spreadsheetService.createSpreadsheet(spreadsheetData);
     }
@@ -33,8 +33,21 @@ public class SpreadsheetController {
     }
 
     @GetMapping("/{id}")
-    SpreadsheetDTO getSpreadsheets(@PathVariable Long userId, @PathVariable Long id, HttpServletRequest request) throws Exception {
+    SpreadsheetDTO getSpreadsheet(@PathVariable Long userId, @PathVariable Long id, HttpServletRequest request) {
         validateUserId(userId, request);
-        return spreadsheetService.getSpreadsheetByOwnerIdAndId(userId, id);
+        return spreadsheetService.getSpreadsheet(userId, id);
+    }
+
+    @PutMapping("/{id}")
+    SpreadsheetDTO updateSpreadsheet(@PathVariable Long userId, @PathVariable Long id, @RequestBody CreateUpdateSpreadsheet spreadsheetData, HttpServletRequest request) {
+        validateUserId(userId, request);
+        return spreadsheetService.updateSpreadsheet(userId, id, spreadsheetData);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    void deleteSpreadsheet(@PathVariable Long userId, @PathVariable Long id, HttpServletRequest request) throws Exception {
+        validateUserId(id, request);
+        spreadsheetService.deleteSpreadsheet(userId, id);
     }
 }

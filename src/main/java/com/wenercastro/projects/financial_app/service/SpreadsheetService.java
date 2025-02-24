@@ -1,8 +1,9 @@
 package com.wenercastro.projects.financial_app.service;
 
-import com.wenercastro.projects.financial_app.dto.CreateSpreadsheet;
+import com.wenercastro.projects.financial_app.dto.CreateUpdateSpreadsheet;
 import com.wenercastro.projects.financial_app.dto.SpreadsheetDTO;
 import com.wenercastro.projects.financial_app.dto.UserDTO;
+import com.wenercastro.projects.financial_app.exception.SpreadsheetNotFoundException;
 import com.wenercastro.projects.financial_app.model.Spreadsheet;
 import com.wenercastro.projects.financial_app.model.User;
 import com.wenercastro.projects.financial_app.repository.SpreadsheetRepository;
@@ -20,16 +21,11 @@ public class SpreadsheetService {
 
     private SpreadsheetRepository spreadsheetRepository;
 
-    public void createSpreadsheet(CreateSpreadsheet spreadsheetData) {
+    public void createSpreadsheet(CreateUpdateSpreadsheet spreadsheetData) {
         Spreadsheet spreadsheet = Spreadsheet.builder()
                 .name(spreadsheetData.name())
                 .build();
         spreadsheetRepository.save(spreadsheet);
-    }
-
-    public List<SpreadsheetDTO> findSpreadsheets() {
-        List<Spreadsheet> spreadsheets = new ArrayList<>((Collection) spreadsheetRepository.findAll());
-        return spreadsheets.stream().map(spreadsheet -> new SpreadsheetDTO(spreadsheet.getId(), spreadsheet.getName())).toList();
     }
 
     public List<SpreadsheetDTO> findSpreadsheets(Long ownerId) {
@@ -37,12 +33,28 @@ public class SpreadsheetService {
         return spreadsheets.stream().map(spreadsheet -> new SpreadsheetDTO(spreadsheet.getId(), spreadsheet.getName())).toList();
     }
 
-    public SpreadsheetDTO getSpreadsheetByOwnerIdAndId(Long userId, Long id) throws Exception {
-        Optional<Spreadsheet> optionalSpreadsheet = spreadsheetRepository.findByOwnerIdAndId(userId, id);
-        if (optionalSpreadsheet.isEmpty()) {
-            throw new Exception("Spreadsheet not found");
-        }
-        Spreadsheet spreadsheet = optionalSpreadsheet.get();
+    public SpreadsheetDTO getSpreadsheet(Long ownerId, Long id) {
+        Spreadsheet spreadsheet = validateAndGetSpreadsheet(spreadsheetRepository.findByOwnerIdAndId(ownerId, id));
         return new SpreadsheetDTO(spreadsheet.getId(), spreadsheet.getName());
+    }
+
+
+    public SpreadsheetDTO updateSpreadsheet(Long ownerId, Long id, CreateUpdateSpreadsheet spreadsheetData) {
+        Spreadsheet spreadsheet = validateAndGetSpreadsheet(spreadsheetRepository.findByOwnerIdAndId(ownerId, id));
+        spreadsheet.setName(spreadsheetData.name());
+        spreadsheet = spreadsheetRepository.save(spreadsheet);
+        return new SpreadsheetDTO(spreadsheet.getId(), spreadsheet.getName());
+    }
+
+    public void deleteSpreadsheet(Long ownerId, Long id) {
+        Spreadsheet spreadsheet = validateAndGetSpreadsheet(spreadsheetRepository.findByOwnerIdAndId(ownerId, id));
+        spreadsheetRepository.delete(spreadsheet);
+    }
+
+    private static Spreadsheet validateAndGetSpreadsheet(Optional<Spreadsheet> optionalSpreadsheet) {
+        if (optionalSpreadsheet.isEmpty()) {
+            throw new SpreadsheetNotFoundException("Spreadsheet not found");
+        }
+        return optionalSpreadsheet.get();
     }
 }

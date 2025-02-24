@@ -24,7 +24,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("")
-    UserDTO create(@RequestBody CreateUser userData) {
+    UserDTO createUser(@RequestBody CreateUser userData) {
         return userService.createUser(userData);
     }
 
