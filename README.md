@@ -1,4 +1,8 @@
 - [x] Create User CRUD.
 - [x] Create Login for the User. Endpoints and all that.
-- [ ] Create a Role System.
+- [x] Create a Role System.
 - [x] Create a ADMIN User when the application starts.
+- [ ] Create Spreadsheet CRUD associated with logged User.
+- [ ] Create Account CRUD
+- [ ] Create Entity CRUD
+- [ ] Create Register CRUD
