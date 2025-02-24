@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @AllArgsConstructor
-public class AdminConfig {
+public class AdminSetupConfig {
 
     private UserRepository userRepository;
 
