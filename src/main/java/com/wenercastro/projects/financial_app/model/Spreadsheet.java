@@ -23,6 +23,15 @@ public class Spreadsheet {
     @ManyToOne
     private User owner;
 
-    @OneToMany(mappedBy="spreadsheetr")
-    private Set<MoneyAccount> accounts;
+    @OneToMany(mappedBy="spreadsheet")
+    private Set<Account> accounts;
+
+    @OneToMany(mappedBy="spreadsheet")
+    private Set<Account> creditCards;
+
+    @OneToMany(mappedBy="spreadsheet")
+    private Set<Account> budgets;
+
+    @OneToMany(mappedBy="spreadsheet")
+    private Set<Account> debts;
 }

@@ -1,24 +1,21 @@
 package com.wenercastro.projects.financial_app.model;
 
-import jakarta.persistence.*;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
-@Table(name = "accounts")
+@Table(name = "debts")
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class MoneyAccount {
+public class Debt {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
-    private Long amount;
-
-    @ManyToOne
-    private Spreadsheet spreadsheet;
 }

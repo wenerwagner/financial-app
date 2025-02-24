@@ -9,10 +9,7 @@ import com.wenercastro.projects.financial_app.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -20,18 +17,24 @@ public class UserService {
 
     private UserRepository userRepository;
 
-    public void createUser(CreateUser userData) {
+    public UserDTO createUser(CreateUser userData) {
         User user = User.builder()
                 .email(userData.email())
                 .name(userData.name())
                 .password(userData.password())
                 .role(Role.USER)
                 .build();
-        userRepository.save(user);
+        user = userRepository.save(user);
+        return new UserDTO(user.getId(), user.getName(), user.getEmail());
     }
 
     public List<UserDTO> getUsers() {
         List<User> users = new ArrayList<>((Collection) userRepository.findAll());
+        return users.stream().map(user -> new UserDTO(user.getId(), user.getName(), user.getEmail())).toList();
+    }
+
+    public List<UserDTO> getUsers(Long id) {
+        List<User> users = new ArrayList<>((Collection) userRepository.findAllById(Collections.singleton(id)));
         return users.stream().map(user -> new UserDTO(user.getId(), user.getName(), user.getEmail())).toList();
     }
 
@@ -73,4 +76,5 @@ public class UserService {
         }
         return optionalUser.get();
     }
+
 }
