@@ -32,15 +32,15 @@ public class UserController {
     List<UserDTO> getUsers(HttpServletRequest request) {
         User user = (User) request.getAttribute(LOGGED_USER);
         if (user != null && !user.getRole().equals(ADMIN)) {
-            return userService.getUsers(user.getId());
+            return userService.findUsers(user.getId());
         }
-        return userService.getUsers();
+        return userService.findUsers();
     }
 
     @GetMapping("/{id}")
     UserDTO getUser(@PathVariable Long id, HttpServletRequest request) throws Exception {
         validateUserId(id, request);
-        return userService.getUserById(id);
+        return userService.getUser(id);
     }
 
     @PutMapping("/{id}")
@@ -56,7 +56,7 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    private void validateUserId(Long id, HttpServletRequest request) {
+    public static void validateUserId(Long id, HttpServletRequest request) {
         User user = (User) request.getAttribute(LOGGED_USER);
         if (user != null && !user.getRole().equals(ADMIN) && !user.getId().equals(id)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, HttpStatus.FORBIDDEN.getReasonPhrase());

@@ -1,5 +1,6 @@
 package com.wenercastro.projects.financial_app.interceptor;
 
+import com.wenercastro.projects.financial_app.exception.UserNotFoundException;
 import com.wenercastro.projects.financial_app.model.User;
 import com.wenercastro.projects.financial_app.service.JwtService;
 import com.wenercastro.projects.financial_app.service.UserService;
@@ -28,8 +29,13 @@ public class AuthInterceptor implements HandlerInterceptor {
             String token = authorizationHeader.substring(BEARER_PREFIX.length());
             if (jwtService.isTokenValid(token)) {
                 String userEmail = jwtService.getEmailFromToken(token);
-                User user = userService.getUserByEmail(userEmail);
-                request.setAttribute(LOGGED_USER, user);
+                try {
+                    User user = userService.getUserByEmail(userEmail);
+                    request.setAttribute(LOGGED_USER, user);
+                } catch (UserNotFoundException ex) {
+                    System.out.println("ERRO: email não encontrado");
+                }
+
             }
         }
         return true;

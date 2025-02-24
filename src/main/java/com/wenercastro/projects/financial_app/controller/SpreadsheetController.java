@@ -2,16 +2,18 @@ package com.wenercastro.projects.financial_app.controller;
 
 import com.wenercastro.projects.financial_app.dto.CreateSpreadsheet;
 import com.wenercastro.projects.financial_app.dto.SpreadsheetDTO;
-import com.wenercastro.projects.financial_app.dto.UserDTO;
 import com.wenercastro.projects.financial_app.service.SpreadsheetService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.wenercastro.projects.financial_app.controller.UserController.validateUserId;
+
 @RestController
-@RequestMapping("/spreadsheets")
+@RequestMapping("/users/{userId}/spreadsheets")
 @AllArgsConstructor
 public class SpreadsheetController {
 
@@ -19,12 +21,20 @@ public class SpreadsheetController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    void create(@RequestBody CreateSpreadsheet spreadsheetData) {
+    void create(@PathVariable Long userId, @RequestBody CreateSpreadsheet spreadsheetData, HttpServletRequest request) {
+        validateUserId(userId, request);
         spreadsheetService.createSpreadsheet(spreadsheetData);
     }
 
     @GetMapping("")
-    List<SpreadsheetDTO> getSpreadsheets() {
-        return spreadsheetService.getSpreadsheets();
+    List<SpreadsheetDTO> getSpreadsheets(@PathVariable Long userId, HttpServletRequest request) {
+        validateUserId(userId, request);
+        return spreadsheetService.findSpreadsheets(userId);
+    }
+
+    @GetMapping("/{id}")
+    SpreadsheetDTO getSpreadsheets(@PathVariable Long userId, @PathVariable Long id, HttpServletRequest request) throws Exception {
+        validateUserId(userId, request);
+        return spreadsheetService.getSpreadsheetByOwnerIdAndId(userId, id);
     }
 }
