@@ -21,8 +21,9 @@ public class SpreadsheetService {
 
     private SpreadsheetRepository spreadsheetRepository;
 
-    public void createSpreadsheet(CreateUpdateSpreadsheet spreadsheetData) {
+    public void createSpreadsheet(User owner, CreateUpdateSpreadsheet spreadsheetData) {
         Spreadsheet spreadsheet = Spreadsheet.builder()
+                .owner(owner)
                 .name(spreadsheetData.name())
                 .build();
         spreadsheetRepository.save(spreadsheet);

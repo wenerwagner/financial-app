@@ -2,6 +2,7 @@ package com.wenercastro.projects.financial_app.controller;
 
 import com.wenercastro.projects.financial_app.dto.CreateUpdateSpreadsheet;
 import com.wenercastro.projects.financial_app.dto.SpreadsheetDTO;
+import com.wenercastro.projects.financial_app.model.User;
 import com.wenercastro.projects.financial_app.service.SpreadsheetService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static com.wenercastro.projects.financial_app.controller.UserController.validateUserId;
+import static com.wenercastro.projects.financial_app.interceptor.AuthInterceptor.LOGGED_USER;
 
 @RestController
 @RequestMapping("/users/{userId}/spreadsheets")
@@ -23,7 +25,8 @@ public class SpreadsheetController {
     @PostMapping("")
     void createSpreadsheet(@PathVariable Long userId, @RequestBody CreateUpdateSpreadsheet spreadsheetData, HttpServletRequest request) {
         validateUserId(userId, request);
-        spreadsheetService.createSpreadsheet(spreadsheetData);
+        User owner = (User) request.getAttribute(LOGGED_USER);
+        spreadsheetService.createSpreadsheet(owner, spreadsheetData);
     }
 
     @GetMapping("")
