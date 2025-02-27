@@ -21,66 +21,66 @@
 
 ### Users
 
-- POST&nbsp;/admin/users&nbsp;:white_check_mark:
-- GET&nbsp;&nbsp;/admin/users&nbsp;:white_check_mark:
-- GET&nbsp;&nbsp;/admin/users/{user-id}&nbsp;:white_check_mark:
-- PUT&nbsp;&nbsp;/admin/users/{user-id}&nbsp;:hourglass_flowing_sand:
-- DELETE&nbsp;/admin/users/{user-id}&nbsp;:white_check_mark:
+- POST /admin/users ✔️
+- GET  /admin/users ✔️
+- GET  /admin/users/{user-id} ✔️
+- PUT  /admin/users/{user-id} ⏳
+- DELETE /admin/users/{user-id} ✔️
 
 ## Endpoints
 
 ### Spreadsheets
 
-- POST&nbsp;&nbsp;/spreadsheets&nbsp;:white_check_mark:
-- GET&nbsp;&nbsp;/spreadsheets&nbsp;:white_check_mark:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}&nbsp;:white_check_mark:
-- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}&nbsp;:hourglass_flowing_sand:
-- DELETE&nbsp;/spreadsheets/{spreadsheet-id} &nbsp;:white_check_mark:
+- POST  /spreadsheets ✔️
+- GET  /spreadsheets ✔️
+- GET  /spreadsheets/{spreadsheet-id} ✔️
+- PUT  /spreadsheets/{spreadsheet-id} ⏳
+- DELETE /spreadsheets/{spreadsheet-id}  ✔️
 
 ### Budgets
 
-- POST&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/budgets&nbsp;:hourglass_flowing_sand:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/budgets&nbsp;:hourglass_flowing_sand:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/budgets/{budget-id}&nbsp;:hourglass_flowing_sand:
-- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/budgets/{budget-id}&nbsp;:hourglass_flowing_sand:
-- DELETE&nbsp;/spreadsheets/{spreadsheet-id}/budgets/{budget-id}&nbsp;:hourglass_flowing_sand:
+- POST  /spreadsheets/{spreadsheet-id}/budgets ⏳
+- GET  /spreadsheets/{spreadsheet-id}/budgets ⏳
+- GET  /spreadsheets/{spreadsheet-id}/budgets/{budget-id} ⏳
+- PUT  /spreadsheets/{spreadsheet-id}/budgets/{budget-id} ⏳
+- DELETE /spreadsheets/{spreadsheet-id}/budgets/{budget-id} ⏳
 
 ### Debts
 
-- POST&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/debts&nbsp;:hourglass_flowing_sand:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/debts&nbsp;:hourglass_flowing_sand:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/debts/{debt-id}&nbsp;:hourglass_flowing_sand:
-- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/debts/{debt-id}&nbsp;:hourglass_flowing_sand:
-- DELETE&nbsp;/spreadsheets/{spreadsheet-id}/debts/{debt-id}&nbsp;:hourglass_flowing_sand:
+- POST  /spreadsheets/{spreadsheet-id}/debts ⏳
+- GET  /spreadsheets/{spreadsheet-id}/debts ⏳
+- GET  /spreadsheets/{spreadsheet-id}/debts/{debt-id} ⏳
+- PUT  /spreadsheets/{spreadsheet-id}/debts/{debt-id} ⏳
+- DELETE /spreadsheets/{spreadsheet-id}/debts/{debt-id} ⏳
 
 ### Transactions
 
-- POST&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/transactions&nbsp;:hourglass_flowing_sand:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/transactions&nbsp;:hourglass_flowing_sand:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}&nbsp;:hourglass_flowing_sand:
-- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}&nbsp;:hourglass_flowing_sand:
-- DELETE&nbsp;/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}&nbsp;:hourglass_flowing_sand:
+- POST  /spreadsheets/{spreadsheet-id}/transactions ⏳
+- GET  /spreadsheets/{spreadsheet-id}/transactions ⏳
+- GET  /spreadsheets/{spreadsheet-id}/transactions/{transaction-id} ⏳
+- PUT  /spreadsheets/{spreadsheet-id}/transactions/{transaction-id} ⏳
+- DELETE /spreadsheets/{spreadsheet-id}/transactions/{transaction-id} ⏳
 
 ### Rules
 
-- POST&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/rules&nbsp;:hourglass_flowing_sand:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/rules&nbsp;:hourglass_flowing_sand:
-- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/rules/{rule-id}&nbsp;:hourglass_flowing_sand:
-- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/rules/{rule-id}&nbsp;:hourglass_flowing_sand:
-- DELETE&nbsp;/spreadsheets/{spreadsheet-id}/rules/{rule-id}&nbsp;:hourglass_flowing_sand:
+- POST  /spreadsheets/{spreadsheet-id}/rules ⏳
+- GET  /spreadsheets/{spreadsheet-id}/rules ⏳
+- GET  /spreadsheets/{spreadsheet-id}/rules/{rule-id} ⏳
+- PUT  /spreadsheets/{spreadsheet-id}/rules/{rule-id} ⏳
+- DELETE /spreadsheets/{spreadsheet-id}/rules/{rule-id} ⏳
 
 ### Accounts
 
-- POST&nbsp;&nbsp;/accounts&nbsp;:white_check_mark:
-- GET&nbsp;&nbsp;/accounts&nbsp;:white_check_mark:
-- GET&nbsp;&nbsp;/accounts/{account-id}&nbsp;:white_check_mark:
-- PUT&nbsp;&nbsp;/accounts/{account-id}&nbsp;:hourglass_flowing_sand:
-- DELETE&nbsp;/accounts/{account-id}&nbsp;:white_check_mark:
+- POST  /accounts ✔️
+- GET  /accounts ✔️
+- GET  /accounts/{account-id} ✔️
+- PUT  /accounts/{account-id} ⏳
+- DELETE /accounts/{account-id} ✔️
 
 ### Credit Cards
 
-- POST&nbsp;&nbsp;/credit-cards&nbsp;:white_check_mark:
-- GET&nbsp;&nbsp;/credit-cards&nbsp;:white_check_mark:
-- GET&nbsp;&nbsp;/credit-cards/{credit-card-id}&nbsp;:white_check_mark:
-- PUT&nbsp;&nbsp;/credit-cards/{credit-card-id}&nbsp;:hourglass_flowing_sand:
-- DELETE&nbsp;/credit-cards/{credit-card-id}&nbsp;:white_check_mark:
+- POST  /credit-cards ✔️
+- GET  /credit-cards ✔️
+- GET  /credit-cards/{credit-card-id} ✔️
+- PUT  /credit-cards/{credit-card-id} ⏳
+- DELETE /credit-cards/{credit-card-id} ✔️
