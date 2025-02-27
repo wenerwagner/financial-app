@@ -11,47 +11,70 @@
 - [ ] Create Debts CRUD.
 - [ ] Adicionar conexão com um banco de dados persistente.
 
-### Endpoints
+## Endpoints - Admin
 
-#### Users
+### Users
 
-POST    /users\
-GET	    /users\
-GET	    /users/{user-id}\
-PUT	    /users/{user-id}\
-DELETE	/users/{user-id}
+- POST		/admin/users
+- GET		/admin/users
+- GET		/admin/users/{user-id}
+- PUT		/admin/users/{user-id}
+- DELETE	/admin/users/{user-id}
 
-#### Spreadsheets
-POST	/users/{user-id}/spreadsheets\
-GET	/users/{user-id}/spreadsheets\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}\
-PUT	/users/{user-id}/spreadsheets/{spreadsheet-id}\
-DELETE	/users/{user-id}/spreadsheets/{spreadsheet-id}
+## Endpoints
 
-#### Accounts
-POST	/users/{user-id}/spreadsheets/{spreadsheet-id}/accounts\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}/accounts\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}/accounts/{account-id}\
-PUT	/users/{user-id}/spreadsheets/{spreadsheet-id}/accounts/{account-id}\
-DELETE	/users/{user-id}/spreadsheets/{spreadsheet-id}/accounts/{account-id}
+### Spreadsheets
 
-#### Credit Cards
-POST	/users/{user-id}/spreadsheets/{spreadsheet-id}/credit-cards\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}/credit-cards\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}/credit-cards/{credit-card-id}\
-PUT	/users/{user-id}/spreadsheets/{spreadsheet-id}/credit-cards/{credit-card-id}\
-DELETE	/users/{user-id}/spreadsheets/{spreadsheet-id}/credit-cards/{credit-card-id}
+- POST		/spreadsheets
+- GET		/spreadsheets
+- GET		/spreadsheets/{spreadsheet-id}
+- PUT		/spreadsheets/{spreadsheet-id}
+- DELETE	/spreadsheets/{spreadsheet-id} 
 
-#### Budgets
-POST	/users/{user-id}/spreadsheets/{spreadsheet-id}/budgets\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}/budgets\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}/budgets/{budgets-id}\
-PUT	/users/{user-id}/spreadsheets/{spreadsheet-id}/budgets/{budgets-id}\
-DELETE	/users/{user-id}/spreadsheets/{spreadsheet-id}/budgets/{budgets-id}
+### Budgets
 
-#### Debts
-POST	/users/{user-id}/spreadsheets/{spreadsheet-id}/debts\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}/debts\
-GET	/users/{user-id}/spreadsheets/{spreadsheet-id}/debts/{debts-id}\
-PUT	/users/{user-id}/spreadsheets/{spreadsheet-id}/debts/{debts-id}\
-DELETE	/users/{user-id}/spreadsheets/{spreadsheet-id}/debts/{debts-id}
+- POST		/spreadsheets/{spreadsheet-id}/budgets
+- GET		/spreadsheets/{spreadsheet-id}/budgets
+- GET		/spreadsheets/{spreadsheet-id}/budgets/{budget-id}
+- PUT		/spreadsheets/{spreadsheet-id}/budgets/{budget-id}
+- DELETE	/spreadsheets/{spreadsheet-id}/budgets/{budget-id}
+
+### Debts
+
+- POST		/spreadsheets/{spreadsheet-id}/debts
+- GET		/spreadsheets/{spreadsheet-id}/debts
+- GET		/spreadsheets/{spreadsheet-id}/debts/{debt-id}
+- PUT		/spreadsheets/{spreadsheet-id}/debts/{debt-id}
+- DELETE	/spreadsheets/{spreadsheet-id}/debts/{debt-id}
+
+### Transactions
+
+- POST		/spreadsheets/{spreadsheet-id}/transactions
+- GET		/spreadsheets/{spreadsheet-id}/transactions
+- GET		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
+- PUT		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
+- DELETE	/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
+
+### Transactions
+
+- POST		/spreadsheets/{spreadsheet-id}/transactions
+- GET		/spreadsheets/{spreadsheet-id}/transactions
+- GET		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
+- PUT		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
+- DELETE	/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
+
+### Accounts
+
+- POST        /accounts
+- GET         /accounts
+- GET         /accounts/{account-id}
+- PUT         /accounts/{account-id}
+- DELETE      /accounts/{account-id}
+
+### Credit Cards
+
+- POST        /credit-cards
+- GET         /credit-cards
+- GET         /credit-cards/{credit-card-id}
+- PUT         /credit-cards/{credit-card-id}
+- DELETE      /credit-cards/{credit-card-id}
