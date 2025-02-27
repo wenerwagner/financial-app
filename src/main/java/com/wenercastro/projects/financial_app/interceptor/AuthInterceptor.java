@@ -2,8 +2,8 @@ package com.wenercastro.projects.financial_app.interceptor;
 
 import com.wenercastro.projects.financial_app.exception.UserNotFoundException;
 import com.wenercastro.projects.financial_app.model.User;
+import com.wenercastro.projects.financial_app.repository.UserRepository;
 import com.wenercastro.projects.financial_app.service.JwtService;
-import com.wenercastro.projects.financial_app.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     public static final String LOGGED_USER = "loggedUser";
 
     private JwtService jwtService;
-    private UserService userService;
+    private UserRepository userRepository;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -30,7 +30,7 @@ public class AuthInterceptor implements HandlerInterceptor {
             if (jwtService.isTokenValid(token)) {
                 String userEmail = jwtService.getEmailFromToken(token);
                 try {
-                    User user = userService.getUserByEmail(userEmail);
+                    User user = userRepository.findByEmail(userEmail).get();
                     request.setAttribute(LOGGED_USER, user);
                 } catch (UserNotFoundException ex) {
                     System.out.println("ERRO: email não encontrado");

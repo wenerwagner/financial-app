@@ -16,7 +16,7 @@ public class AuthController {
 
     private AuthService authService;
 
-    @PostMapping
+    @PostMapping("/login")
     AccessToken login(@RequestBody LoginData loginData) throws Exception {
         return authService.login(loginData.email(), loginData.password());
     }

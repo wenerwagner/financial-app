@@ -1,10 +1,9 @@
 package com.wenercastro.projects.financial_app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.*;
-
-import java.util.Set;
 
 @Table(name = "spreadsheets")
 @Entity
@@ -21,17 +20,7 @@ public class Spreadsheet {
     private String name;
 
     @ManyToOne
+    @JsonIgnore
     private User owner;
 
-    @OneToMany(mappedBy="spreadsheet")
-    private Set<Account> accounts;
-
-    @OneToMany(mappedBy="spreadsheet")
-    private Set<Account> creditCards;
-
-    @OneToMany(mappedBy="spreadsheet")
-    private Set<Account> budgets;
-
-    @OneToMany(mappedBy="spreadsheet")
-    private Set<Account> debts;
 }

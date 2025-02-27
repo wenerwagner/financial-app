@@ -1,8 +1,10 @@
 package com.wenercastro.projects.financial_app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import java.util.Set;
 
@@ -19,12 +21,19 @@ public class User {
     @GeneratedValue
     private Long id;
     private String email;
+    @JsonIgnore
     private String password;
     private String name;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy="owner")
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Spreadsheet> spreadsheets;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Account> accounts;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Account> creditCards;
 }

@@ -1,9 +1,7 @@
 package com.wenercastro.projects.financial_app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name = "credit_cards")
@@ -18,4 +16,8 @@ public class CreditCard {
     @Id
     @GeneratedValue
     private Long id;
+
+    @ManyToOne
+    @JsonIgnore
+    private User owner;
 }

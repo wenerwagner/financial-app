@@ -1,5 +1,6 @@
 package com.wenercastro.projects.financial_app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.*;
@@ -20,5 +21,6 @@ public class Account {
     private Long amount;
 
     @ManyToOne
-    private Spreadsheet spreadsheet;
+    @JsonIgnore
+    private User owner;
 }

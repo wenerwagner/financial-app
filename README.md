@@ -10,6 +10,12 @@
 - [ ] Create Budgets CRUD.
 - [ ] Create Debts CRUD.
 - [ ] Adicionar conexão com um banco de dados persistente.
+- [ ] Create autoformatter to remove unused imports. Reassure this behaviour in the pipeline, not only in the IDE.
+- [ ] Look for a strategy to sort the imports. Remove wildcard import. Add to autoformatter. Reassure in the pipeline.
+
+### Ideas
+
+- Create a way to fast prototype this basic setup of CRUD for the defined entities. Just a yaml or something like that setup and hit create, and have full functional application.
 
 ## Endpoints - Admin
 
@@ -18,7 +24,7 @@
 - POST		/admin/users
 - GET		/admin/users
 - GET		/admin/users/{user-id}
-- PUT		/admin/users/{user-id}
+- <s>PUT	/admin/users/{user-id}</s>
 - DELETE	/admin/users/{user-id}
 
 ## Endpoints
@@ -28,7 +34,7 @@
 - POST		/spreadsheets
 - GET		/spreadsheets
 - GET		/spreadsheets/{spreadsheet-id}
-- PUT		/spreadsheets/{spreadsheet-id}
+- <s>PUT		/spreadsheets/{spreadsheet-id}</s>
 - DELETE	/spreadsheets/{spreadsheet-id} 
 
 ### Budgets
@@ -55,13 +61,13 @@
 - PUT		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
 - DELETE	/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
 
-### Transactions
+### Rules
 
-- POST		/spreadsheets/{spreadsheet-id}/transactions
-- GET		/spreadsheets/{spreadsheet-id}/transactions
-- GET		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
-- PUT		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
-- DELETE	/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
+- POST		/spreadsheets/{spreadsheet-id}/rules
+- GET		/spreadsheets/{spreadsheet-id}/rules
+- GET		/spreadsheets/{spreadsheet-id}/rules/{rule-id}
+- PUT		/spreadsheets/{spreadsheet-id}/rules/{rule-id}
+- DELETE	/spreadsheets/{spreadsheet-id}/rules/{rule-id}
 
 ### Accounts
 
