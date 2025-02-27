@@ -4,9 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.*;
-import org.hibernate.annotations.Cascade;
 
-import java.util.Set;
+import java.util.List;
 
 @Table(name = "users")
 @Entity
@@ -29,11 +28,11 @@ public class User {
     private Role role;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Spreadsheet> spreadsheets;
+    private List<Spreadsheet> spreadsheets;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Account> accounts;
+    private List<Account> accounts;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Account> creditCards;
+    private List<CreditCard> creditCards;
 }

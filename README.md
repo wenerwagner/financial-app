@@ -6,10 +6,14 @@
 - [x] Create a ADMIN User when the application starts.
 - [x] Create Spreadsheet CRUD associated with logged User.
 - [x] Create Accounts CRUD.
-- [ ] Create Credit Cards CRUD.
-- [ ] Create Budgets CRUD.
+- [x] Create Credit Cards CRUD.
+- [x] Create Budgets CRUD.
+- [ ] Test Budgets CRUD.
 - [ ] Create Debts CRUD.
-- [ ] Adicionar conexão com um banco de dados persistente.
+- [ ] Create Transactions CRUD.
+- [ ] Add persistent database connection.
+- [ ] Create unit tests.
+- [ ] Create functionalities tests and scenarios.
 - [ ] Create autoformatter to remove unused imports. Reassure this behaviour in the pipeline, not only in the IDE.
 - [ ] Look for a strategy to sort the imports. Remove wildcard import. Add to autoformatter. Reassure in the pipeline.
 
@@ -35,15 +39,15 @@
 - GET  /spreadsheets ✔️
 - GET  /spreadsheets/{spreadsheet-id} ✔️
 - PUT  /spreadsheets/{spreadsheet-id} ⏳
-- DELETE /spreadsheets/{spreadsheet-id}  ✔️
+- DELETE /spreadsheets/{spreadsheet-id} ✔️
 
 ### Budgets
 
-- POST  /spreadsheets/{spreadsheet-id}/budgets ⏳
-- GET  /spreadsheets/{spreadsheet-id}/budgets ⏳
-- GET  /spreadsheets/{spreadsheet-id}/budgets/{budget-id} ⏳
+- POST  /spreadsheets/{spreadsheet-id}/budgets  ✔️
+- GET  /spreadsheets/{spreadsheet-id}/budgets  ✔️
+- GET  /spreadsheets/{spreadsheet-id}/budgets/{budget-id}  ✔️
 - PUT  /spreadsheets/{spreadsheet-id}/budgets/{budget-id} ⏳
-- DELETE /spreadsheets/{spreadsheet-id}/budgets/{budget-id} ⏳
+- DELETE /spreadsheets/{spreadsheet-id}/budgets/{budget-id}  ✔️
 
 ### Debts
 

@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.*;
 
+import java.util.List;
+import java.util.Set;
+
 @Table(name = "spreadsheets")
 @Entity
 @Builder
@@ -22,5 +25,8 @@ public class Spreadsheet {
     @ManyToOne
     @JsonIgnore
     private User owner;
+
+    @OneToMany(mappedBy = "spreadsheet", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Budget> budgets;
 
 }
