@@ -1,9 +1,3 @@
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-<i class="fas fa-band-aid"></i>
-<i class="fas fa-cat"></i>
-<i class="fas fa-dragon"></i>
-<i class="far fa-clock"></i>
-<i class="fas fa-clock"></i>
 ### Tasks
 
 - [x] Create User CRUD.
@@ -27,66 +21,66 @@
 
 ### Users
 
-- POST		/admin/users
-- GET		/admin/users
-- GET		/admin/users/{user-id}
-- <s>PUT	/admin/users/{user-id}</s>
-- DELETE	/admin/users/{user-id}
+- POST&nbsp;/admin/users&nbsp;:white_check_mark:
+- GET&nbsp;&nbsp;/admin/users&nbsp;:white_check_mark:
+- GET&nbsp;&nbsp;/admin/users/{user-id}&nbsp;:white_check_mark:
+- PUT&nbsp;&nbsp;/admin/users/{user-id}&nbsp;:hourglass_flowing_sand:
+- DELETE&nbsp;/admin/users/{user-id}&nbsp;:white_check_mark:
 
 ## Endpoints
 
 ### Spreadsheets
 
-- POST		/spreadsheets
-- GET		/spreadsheets
-- GET		/spreadsheets/{spreadsheet-id}
-- <s>PUT	/spreadsheets/{spreadsheet-id}</s>
-- DELETE	/spreadsheets/{spreadsheet-id} 
+- POST&nbsp;&nbsp;/spreadsheets&nbsp;:white_check_mark:
+- GET&nbsp;&nbsp;/spreadsheets&nbsp;:white_check_mark:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}&nbsp;:white_check_mark:
+- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}&nbsp;:hourglass_flowing_sand:
+- DELETE&nbsp;/spreadsheets/{spreadsheet-id} &nbsp;:white_check_mark:
 
 ### Budgets
 
-- POST		/spreadsheets/{spreadsheet-id}/budgets
-- GET		/spreadsheets/{spreadsheet-id}/budgets
-- GET		/spreadsheets/{spreadsheet-id}/budgets/{budget-id}
-- PUT		/spreadsheets/{spreadsheet-id}/budgets/{budget-id}
-- DELETE	/spreadsheets/{spreadsheet-id}/budgets/{budget-id}
+- POST&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/budgets&nbsp;:hourglass_flowing_sand:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/budgets&nbsp;:hourglass_flowing_sand:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/budgets/{budget-id}&nbsp;:hourglass_flowing_sand:
+- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/budgets/{budget-id}&nbsp;:hourglass_flowing_sand:
+- DELETE&nbsp;/spreadsheets/{spreadsheet-id}/budgets/{budget-id}&nbsp;:hourglass_flowing_sand:
 
 ### Debts
 
-- POST		/spreadsheets/{spreadsheet-id}/debts
-- GET		/spreadsheets/{spreadsheet-id}/debts
-- GET		/spreadsheets/{spreadsheet-id}/debts/{debt-id}
-- PUT		/spreadsheets/{spreadsheet-id}/debts/{debt-id}
-- DELETE	/spreadsheets/{spreadsheet-id}/debts/{debt-id}
+- POST&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/debts&nbsp;:hourglass_flowing_sand:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/debts&nbsp;:hourglass_flowing_sand:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/debts/{debt-id}&nbsp;:hourglass_flowing_sand:
+- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/debts/{debt-id}&nbsp;:hourglass_flowing_sand:
+- DELETE&nbsp;/spreadsheets/{spreadsheet-id}/debts/{debt-id}&nbsp;:hourglass_flowing_sand:
 
 ### Transactions
 
-- POST		/spreadsheets/{spreadsheet-id}/transactions
-- GET		/spreadsheets/{spreadsheet-id}/transactions
-- GET		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
-- PUT		/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
-- DELETE	/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}
+- POST&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/transactions&nbsp;:hourglass_flowing_sand:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/transactions&nbsp;:hourglass_flowing_sand:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}&nbsp;:hourglass_flowing_sand:
+- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}&nbsp;:hourglass_flowing_sand:
+- DELETE&nbsp;/spreadsheets/{spreadsheet-id}/transactions/{transaction-id}&nbsp;:hourglass_flowing_sand:
 
 ### Rules
 
-- POST		/spreadsheets/{spreadsheet-id}/rules
-- GET		/spreadsheets/{spreadsheet-id}/rules
-- GET		/spreadsheets/{spreadsheet-id}/rules/{rule-id}
-- PUT		/spreadsheets/{spreadsheet-id}/rules/{rule-id}
-- DELETE	/spreadsheets/{spreadsheet-id}/rules/{rule-id}
+- POST&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/rules&nbsp;:hourglass_flowing_sand:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/rules&nbsp;:hourglass_flowing_sand:
+- GET&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/rules/{rule-id}&nbsp;:hourglass_flowing_sand:
+- PUT&nbsp;&nbsp;/spreadsheets/{spreadsheet-id}/rules/{rule-id}&nbsp;:hourglass_flowing_sand:
+- DELETE&nbsp;/spreadsheets/{spreadsheet-id}/rules/{rule-id}&nbsp;:hourglass_flowing_sand:
 
 ### Accounts
 
-- POST		/accounts
-- GET		/accounts
-- GET		/accounts/{account-id}
-- <s>PUT	/accounts/{account-id}</s>
-- DELETE	/accounts/{account-id}
+- POST&nbsp;&nbsp;/accounts&nbsp;:white_check_mark:
+- GET&nbsp;&nbsp;/accounts&nbsp;:white_check_mark:
+- GET&nbsp;&nbsp;/accounts/{account-id}&nbsp;:white_check_mark:
+- PUT&nbsp;&nbsp;/accounts/{account-id}&nbsp;:hourglass_flowing_sand:
+- DELETE&nbsp;/accounts/{account-id}&nbsp;:white_check_mark:
 
 ### Credit Cards
 
-- POST		/credit-cards
-- GET		/credit-cards
-- GET		/credit-cards/{credit-card-id}
-- <s>PUT	/credit-cards/{credit-card-id}</s>
-- DELETE	/credit-cards/{credit-card-id}
+- POST&nbsp;&nbsp;/credit-cards&nbsp;:white_check_mark:
+- GET&nbsp;&nbsp;/credit-cards&nbsp;:white_check_mark:
+- GET&nbsp;&nbsp;/credit-cards/{credit-card-id}&nbsp;:white_check_mark:
+- PUT&nbsp;&nbsp;/credit-cards/{credit-card-id}&nbsp;:hourglass_flowing_sand:
+- DELETE&nbsp;/credit-cards/{credit-card-id}&nbsp;:white_check_mark:
