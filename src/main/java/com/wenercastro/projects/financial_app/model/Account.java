@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Table(name = "accounts")
 @Entity
 @Builder
@@ -18,7 +20,7 @@ public class Account {
     @GeneratedValue
     private Long id;
     private String name;
-    private Long amount;
+    private BigDecimal amount;
 
     @ManyToOne
     @JsonIgnore

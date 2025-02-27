@@ -5,7 +5,7 @@
 - [x] Create a Role System.
 - [x] Create a ADMIN User when the application starts.
 - [x] Create Spreadsheet CRUD associated with logged User.
-- [ ] Create Accounts CRUD.
+- [x] Create Accounts CRUD.
 - [ ] Create Credit Cards CRUD.
 - [ ] Create Budgets CRUD.
 - [ ] Create Debts CRUD.
@@ -34,7 +34,7 @@
 - POST		/spreadsheets
 - GET		/spreadsheets
 - GET		/spreadsheets/{spreadsheet-id}
-- <s>PUT		/spreadsheets/{spreadsheet-id}</s>
+- <s>PUT	/spreadsheets/{spreadsheet-id}</s>
 - DELETE	/spreadsheets/{spreadsheet-id} 
 
 ### Budgets
@@ -71,16 +71,16 @@
 
 ### Accounts
 
-- POST        /accounts
-- GET         /accounts
-- GET         /accounts/{account-id}
-- PUT         /accounts/{account-id}
-- DELETE      /accounts/{account-id}
+- POST		/accounts
+- GET		/accounts
+- GET		/accounts/{account-id}
+- <s>PUT	/accounts/{account-id}</s>
+- DELETE	/accounts/{account-id}
 
 ### Credit Cards
 
-- POST        /credit-cards
-- GET         /credit-cards
-- GET         /credit-cards/{credit-card-id}
-- PUT         /credit-cards/{credit-card-id}
-- DELETE      /credit-cards/{credit-card-id}
+- POST		/credit-cards
+- GET		/credit-cards
+- GET		/credit-cards/{credit-card-id}
+- PUT		/credit-cards/{credit-card-id}
+- DELETE	/credit-cards/{credit-card-id}
