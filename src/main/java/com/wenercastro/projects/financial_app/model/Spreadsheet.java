@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import lombok.*;
 
 import java.util.List;
-import java.util.Set;
 
 @Table(name = "spreadsheets")
 @Entity
@@ -28,5 +27,8 @@ public class Spreadsheet {
 
     @OneToMany(mappedBy = "spreadsheet", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Budget> budgets;
+
+    @OneToMany(mappedBy = "spreadsheet", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Debt> debts;
 
 }

@@ -10,7 +10,7 @@
 - [x] Create Budgets CRUD.
 - [x] Create Budgets on startup.
 - [x] Test Budgets CRUD.
-- [ ] Create Debts CRUD.
+- [x] Create Debts CRUD.
 - [ ] Create Transactions CRUD.
 - [ ] Add persistent database connection.
 - [ ] Create unit tests.
@@ -52,11 +52,11 @@
 
 ### Debts
 
-- POST  /spreadsheets/{spreadsheet-id}/debts ⏳
-- GET  /spreadsheets/{spreadsheet-id}/debts ⏳
-- GET  /spreadsheets/{spreadsheet-id}/debts/{debt-id} ⏳
+- POST  /spreadsheets/{spreadsheet-id}/debts  ✔️
+- GET  /spreadsheets/{spreadsheet-id}/debts  ✔️
+- GET  /spreadsheets/{spreadsheet-id}/debts/{debt-id}  ✔️
 - PUT  /spreadsheets/{spreadsheet-id}/debts/{debt-id} ⏳
-- DELETE /spreadsheets/{spreadsheet-id}/debts/{debt-id} ⏳
+- DELETE /spreadsheets/{spreadsheet-id}/debts/{debt-id}  ✔️
 
 ### Transactions
 
