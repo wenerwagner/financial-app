@@ -26,12 +26,14 @@ public class InitialDatabaseDataConfig {
         return args -> {
             createAdminUser();
             // TODO: Remove all the methods call below for the v1
-            System.out.println("INFO: Creating testing data.");
+            System.out.println("INFO: Creating testing data:");
             createUsers();
             createSpreadsheets();
             createAccounts();
             createCreditCards();
             createBudgets();
+            createDebts();
+            System.out.println("INFO: All the test data was created.");
         };
     }
 
@@ -54,6 +56,7 @@ public class InitialDatabaseDataConfig {
     private AccountRepository accountRepository;
     private CreditCardRepository creditCardRepository;
     private BudgetRepository budgetRepository;
+    private DebtRepository debtRepository;
 
     private void createUsers() {
         User myUser = User.builder()
@@ -156,5 +159,26 @@ public class InitialDatabaseDataConfig {
         budgetRepository.save(budget1);
         budgetRepository.save(budget2);
         System.out.println("INFO: Budgets created.");
+    }
+
+    private void createDebts() {
+        Spreadsheet spreadsheet = spreadsheetRepository.findById(1L).get();
+        Debt debt1 = Debt.builder()
+                .name("Empréstimo Marcus")
+                .amount(new BigDecimal("1500"))
+                .spreadsheet(spreadsheet)
+                .paid(new BigDecimal("0"))
+                .build();
+
+        Debt debt2 = Debt.builder()
+                .name("Empréstimop Paulo")
+                .amount(new BigDecimal("700"))
+                .spreadsheet(spreadsheet)
+                .paid(new BigDecimal("250"))
+                .build();
+
+        debtRepository.save(debt1);
+        debtRepository.save(debt2);
+        System.out.println("INFO: Debts created.");
     }
 }

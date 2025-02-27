@@ -1,10 +1,10 @@
 package com.wenercastro.projects.financial_app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.math.BigDecimal;
 
 @Table(name = "debts")
 @Entity
@@ -18,4 +18,11 @@ public class Debt {
     @Id
     @GeneratedValue
     private Long id;
+    private String name;
+    private BigDecimal amount;
+    private BigDecimal paid;
+
+    @ManyToOne
+    @JsonIgnore
+    private Spreadsheet spreadsheet;
 }

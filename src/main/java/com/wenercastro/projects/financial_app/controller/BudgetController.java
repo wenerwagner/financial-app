@@ -2,7 +2,6 @@ package com.wenercastro.projects.financial_app.controller;
 
 import com.wenercastro.projects.financial_app.model.Budget;
 import com.wenercastro.projects.financial_app.model.Spreadsheet;
-import com.wenercastro.projects.financial_app.model.User;
 import com.wenercastro.projects.financial_app.repository.BudgetRepository;
 import com.wenercastro.projects.financial_app.repository.SpreadsheetRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,8 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import static com.wenercastro.projects.financial_app.interceptor.AuthInterceptor.LOGGED_USER;
 
 @RestController
 @RequestMapping("/spreadsheets/{spreadsheetId}/budgets")
