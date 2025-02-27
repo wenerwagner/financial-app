@@ -8,7 +8,8 @@
 - [x] Create Accounts CRUD.
 - [x] Create Credit Cards CRUD.
 - [x] Create Budgets CRUD.
-- [ ] Test Budgets CRUD.
+- [x] Create Budgets on startup.
+- [x] Test Budgets CRUD.
 - [ ] Create Debts CRUD.
 - [ ] Create Transactions CRUD.
 - [ ] Add persistent database connection.

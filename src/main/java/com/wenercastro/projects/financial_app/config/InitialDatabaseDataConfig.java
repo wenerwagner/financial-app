@@ -1,10 +1,7 @@
 package com.wenercastro.projects.financial_app.config;
 
 import com.wenercastro.projects.financial_app.model.*;
-import com.wenercastro.projects.financial_app.repository.AccountRepository;
-import com.wenercastro.projects.financial_app.repository.CreditCardRepository;
-import com.wenercastro.projects.financial_app.repository.SpreadsheetRepository;
-import com.wenercastro.projects.financial_app.repository.UserRepository;
+import com.wenercastro.projects.financial_app.repository.*;
 
 import lombok.AllArgsConstructor;
 
@@ -34,6 +31,7 @@ public class InitialDatabaseDataConfig {
             createSpreadsheets();
             createAccounts();
             createCreditCards();
+            createBudgets();
         };
     }
 
@@ -55,6 +53,7 @@ public class InitialDatabaseDataConfig {
     private SpreadsheetRepository spreadsheetRepository;
     private AccountRepository accountRepository;
     private CreditCardRepository creditCardRepository;
+    private BudgetRepository budgetRepository;
 
     private void createUsers() {
         User myUser = User.builder()
@@ -135,5 +134,27 @@ public class InitialDatabaseDataConfig {
         creditCardRepository.save(creditCard1);
         creditCardRepository.save(creditCard2);
         creditCardRepository.save(creditCard3);
+        System.out.println("INFO: Credit Cards created.");
+    }
+
+    private void createBudgets() {
+        Spreadsheet spreadsheet = spreadsheetRepository.findById(1L).get();
+        Budget budget1 = Budget.builder()
+                .name("Lazer")
+                .amount(new BigDecimal("700"))
+                .spreadsheet(spreadsheet)
+                .spent(new BigDecimal("9"))
+                .build();
+
+        Budget budget2 = Budget.builder()
+                .name("Feira")
+                .amount(new BigDecimal("1500"))
+                .spreadsheet(spreadsheet)
+                .spent(new BigDecimal("250"))
+                .build();
+
+        budgetRepository.save(budget1);
+        budgetRepository.save(budget2);
+        System.out.println("INFO: Budgets created.");
     }
 }
