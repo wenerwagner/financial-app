@@ -16,6 +16,9 @@ public class CreditCard {
     @Id
     @GeneratedValue
     private Long id;
+    private String name;
+    private String issuer;
+    private String brand;
 
     @ManyToOne
     @JsonIgnore

@@ -1,3 +1,9 @@
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<i class="fas fa-band-aid"></i>
+<i class="fas fa-cat"></i>
+<i class="fas fa-dragon"></i>
+<i class="far fa-clock"></i>
+<i class="fas fa-clock"></i>
 ### Tasks
 
 - [x] Create User CRUD.
@@ -82,5 +88,5 @@
 - POST		/credit-cards
 - GET		/credit-cards
 - GET		/credit-cards/{credit-card-id}
-- PUT		/credit-cards/{credit-card-id}
+- <s>PUT	/credit-cards/{credit-card-id}</s>
 - DELETE	/credit-cards/{credit-card-id}
